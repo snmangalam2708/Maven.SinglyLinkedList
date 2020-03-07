@@ -128,6 +128,7 @@ public class SinglyLinkedList {
     }
 
     public SinglyLinkedList copy () {
+
         SinglyLinkedList myCopy = new SinglyLinkedList();
         Node current = this.head;
         while (current != null) {

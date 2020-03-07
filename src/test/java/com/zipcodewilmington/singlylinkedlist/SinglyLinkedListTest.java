@@ -13,10 +13,10 @@ public class SinglyLinkedListTest {
     @Before
     public void setUp() throws Exception {
         mylist = new SinglyLinkedList();
-        mylist.addNode(20);
         mylist.addNode(15);
-        mylist.addNode(18);
-        mylist.addNode(22);
+        mylist.addNode(20);
+        mylist.addNode(28);
+        mylist.addNode(42);
         mylist.addNode(7);
     }
 
@@ -47,7 +47,7 @@ public class SinglyLinkedListTest {
     @Test
     public void removeNode3() {
         mylist.removeNode(1);
-        Assert.assertFalse(mylist.contains(15));
+        Assert.assertFalse(mylist.contains(20));
     }
 
     @Test
@@ -60,19 +60,19 @@ public class SinglyLinkedListTest {
     @Test
     public void find2() {
         Integer expected = 2;
-        Integer actual = mylist.find(18);
+        Integer actual = mylist.find(28);
         Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void get() {  //returns the element at the specified index
-        Integer expected = 15;
+    public void get() {
+        Integer expected = 20;
         Integer actual = mylist.get(1);
         Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void get2() {  //returns the element at the specified index
+    public void get2() {
         Integer expected = -1;
         Integer actual = mylist.get(8);
         Assert.assertEquals(expected, actual);
@@ -86,29 +86,30 @@ public class SinglyLinkedListTest {
     }
 
     @Test
-    public void contains() {
+    public void containsTest() {
         boolean expected = true;
-        boolean actual = mylist.contains(18);
+        boolean actual = mylist.contains(28);
         Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void copyOf () {
-        Integer expected = mylist.size();
-        Integer actual = mylist.copy().size();
+    public void copyTest () {
+
+        Integer expected = mylist.get(3);
+        Integer actual = mylist.copy().get(3);
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void sort () {
-        //SinglyLinkedList expected
+
         SinglyLinkedList actual = mylist.sort();
         SinglyLinkedList expected = new SinglyLinkedList();
         expected.addNode(7);
         expected.addNode(15);
-        expected.addNode(18);
         expected.addNode(20);
-        expected.addNode(22);
+        expected.addNode(28);
+        expected.addNode(42);
         for (int i = 0; i < mylist.size(); i++){
             Assert.assertEquals(expected.get(i), actual.get(i));
         }
